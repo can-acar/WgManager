@@ -1,0 +1,44 @@
+# File: app/routes.py
+from flask import Blueprint, jsonify, request
+
+bp = Blueprint('main', __name__)
+
+
+# @bp.route('/api/interface/add', methods=['GET', 'POST'])
+# def interface_add():
+#     if request.method == 'POST':
+#         return jsonify({'message': 'Hello, world!'})
+#     else:
+#         return jsonify({'message': 'Hello, world!'})
+#
+#
+# @bp.route('/api/peer/add', methods=['GET', 'POST'])
+# def peer_add():
+#     if request.method == 'POST':
+#         return jsonify({'message': 'Hello, world!'})
+#     else:
+#         return jsonify({'message': 'Hello, world!'})
+#
+#
+# @bp.route('/api/peer/get', methods=['GET', 'POST'])
+# def peer_get():
+#     if request.method == 'POST':
+#         return jsonify({'message': 'Hello, world!'})
+#     else:
+#         return jsonify({'message': 'Hello, world!'})
+#
+#
+# @bp.route('/api/peer/update', methods=['GET', 'POST'])
+# def peer_update():
+#     if request.method == 'POST':
+#         return jsonify({'message': 'Hello, world!'})
+#     else:
+#         return jsonify({'message': 'Hello, world!'})
+#
+#
+# @bp.route('/api/peer/delete', methods=['GET', 'POST'])
+# def peer_delete():
+#     if request.method == 'POST':
+#         return jsonify({'message': 'Hello, world!'})
+#     else:
+#         return jsonify({'message': 'Hello, world!'})

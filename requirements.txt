@@ -1,0 +1,6 @@
+injector>=0.20.1
+mediatr>=1.3.2
+Flask>=2.3.2
+Flask-Injector>=0.12.1
+# swagger
+flask-swagger-ui>=3.36.0
