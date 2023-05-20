@@ -1,21 +1,29 @@
-# File: app/__init__.py
-from flask import Flask
+from flasgger import Swagger
+from flask import Flask, Blueprint
+from flask_injector import FlaskInjector
+from app.controllers.InterfaceApiController import bp as interface_api
 
-from app.controllers import InterfaceController
+from app_module import AppModule
 
 
 def create_app():
     app = Flask(__name__)
+
+    bp = Blueprint('app', __name__)
+
+    app.config['DATABASE_URI'] = 'sqlite:///wireguard.db'
+
+    app.register_blueprint(interface_api)
+
+    Swagger(app)
+
     app.config.from_object('config')
-    # from app.controllers import InterfaceController
-    # from app.controllers import PeerController
-    # from app.controllers import TunnelController
-    # from app.controllers import UserController
-    # from app.controllers import VpnController
-    # from app.controllers import VpnServerController
 
-    # call configure() on each controller
-    InterfaceController.configure(app)
+    before_first_request_funcs = []
+    app.before_first_request_funcs = before_first_request_funcs
 
+    FlaskInjector(app=app, modules=[AppModule])
+
+    app.debug = True
 
     return app

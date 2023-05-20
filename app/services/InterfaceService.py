@@ -1,12 +1,12 @@
-from app.db import AppDb
+from injector import inject
 from app.models.interface import Interface
 from app.repositories.InterfaceRepository import InterfaceRepository
 
 
 class InterfaceService:
-    def __int__(self):
-        db = AppDb()
-        self.repository = InterfaceRepository(db)
+    @inject
+    def __int__(self, repository: InterfaceRepository):
+        self.repository = InterfaceRepository
 
     def addInterface(self, interface: Interface) -> Interface:
         self.repository.save(interface)

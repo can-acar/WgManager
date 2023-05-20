@@ -1,3 +1,6 @@
+from flask import json
+
+
 class Interface:
     def __init__(self, name=None, description=None, gateway=None, ipv4=None, ipv6=None, listen_port=None, on_up=None,
                  on_down=None, private_key=None, public_key=None):
@@ -11,3 +14,11 @@ class Interface:
         self.on_down = on_down
         self.private_key = private_key
         self.public_key = public_key
+
+
+class RequestInterface:
+    def __init__(self, page: int, limit: int, sort: object = None, filter: object = None):
+        self.page = page
+        self.limit = limit
+        self.sort = sort
+        self.filter = filter

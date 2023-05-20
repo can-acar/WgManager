@@ -1,5 +1,11 @@
+from injector import inject
+
+from app.db import AppDb
+
+
 class InterfaceRepository:
-    def __init__(self, db):
+    @inject
+    def __init__(self, db: AppDb):
         self.db = db
 
     def save(self, interface) -> int:
