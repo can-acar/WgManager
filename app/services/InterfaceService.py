@@ -1,4 +1,5 @@
 from injector import inject
+
 from app.models.interface import Interface
 from app.repositories.InterfaceRepository import InterfaceRepository
 

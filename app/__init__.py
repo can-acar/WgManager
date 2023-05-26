@@ -1,8 +1,8 @@
 from flasgger import Swagger
-from flask import Flask, Blueprint
+from flask import Blueprint, Flask
 from flask_injector import FlaskInjector
-from app.controllers.InterfaceApiController import bp as interface_api
 
+from app.controllers.InterfaceApiController import bp as interface_api
 from app_module import AppModule
 
 

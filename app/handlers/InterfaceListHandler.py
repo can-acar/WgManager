@@ -1,27 +1,29 @@
-from injector import inject
-from mediatr import Mediator
+# class InterfaceListHandler:
+#     # @inject
+#     # def __init__(self, service: InterfaceService):
+#     #     self.service = service
+#
+#     def handle(self, request: ListInterfaceCommand):
+#         print("InterfaceListHandler")
+#         return "InterfaceListHandler"
 
 from app.commands import ListInterfaceCommand
-from app.services import InterfaceService
 
 
-@inject
-@Mediator.handler(ListInterfaceCommand)
-class InterfaceListHandler:
-    def __init__(self, service: InterfaceService):
-        self.service = service
+# try:
+#     result = await self.service.listInterface(request.page, request.per_page, request.order_by, request.order)
+#     if result:
+#         return result
+#     else:
+#         # throw exception
+#         raise Exception("Interface not listed")
+#
+# except Exception as e:
+#     raise Exception(str(e))
 
-    async def handle_async(self, command: ListInterfaceCommand):
-        try:
-            result = await self.service.listInterface(command.page, command.per_page, command.order_by, command.order)
-            if result:
-                return result
-            else:
-                # throw exception
-                raise Exception("Interface not listed")
 
-        except Exception as e:
-            raise Exception(str(e))
-
-    def get(self):
-        self.write("InterfaceListHandler")
+async def get_array_handler(request: ListInterfaceCommand):
+    items = list()
+    for i in range(0, request.items_count):
+        items.append(i)
+    return items

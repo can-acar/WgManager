@@ -4,7 +4,6 @@ from mediatr import Mediator
 
 from app.commands import AddInterfaceCommand
 from app.commands.AddInterfaceCommand import AddInterfaceResult
-
 from app.services import InterfaceService
 
 app = Flask(__name__)
@@ -12,6 +11,8 @@ app = Flask(__name__)
 
 @Mediator.handler
 class InterfaceAddHandler:
+    mediatr: Mediator
+
     @inject
     def __init__(self, service: InterfaceService):
         self.service = service
